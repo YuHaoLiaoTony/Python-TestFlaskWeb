@@ -1,25 +1,35 @@
 from BaseConn import BaseConn
 import sys
+from Ext.Convert import ConvertArrayExt
+from Ext.Convert import ConvertObjExt
 
 class BaseRepository:
-    def __init__(self, server, database,username,password,obj):
+    def __init__(self, server, database,username,password,type):
         self.__Conn__ =  BaseConn(server,database,username,password)
         self.__Cursor__ = self.__Conn__.CreateConn()
-        self.__Obj__ = obj
-        self.__TableName__ = obj.__name__
-
-    def GetList(self):
+        self.__Type__ = type
+        self.__TableName__ = type.__name__
+        
+    def GetArray(self):
         sql = f"SELECT TOP 100* FROM {self.__TableName__}"
         result = self.__QueryList__(sql)
         return result 
 
     def GetOne(self,id):
         key = 'Id'
-        if hasattr(self.__Obj__, '__Key__'):
-            key = self.__Obj__.__Key__
+        if hasattr(self.__Type__, '__Key__'):
+            key = self.__Type__.__Key__
         sql = f"SELECT * FROM {self.__TableName__} Where {key} = {id}"
         result = self.__QueryOne__(sql)
         return result 
+
+    def GetOneToClass(self,id):
+        data = self.GetOne(id)
+        return ConvertObjExt(data).ToClass(self.__Type__)
+
+    def GetArrayToList(self):
+        datas = self.GetArray()
+        return ConvertArrayExt(datas).ToList(self.__Type__)
 
     def __QueryList__(self,sql):
         result = []

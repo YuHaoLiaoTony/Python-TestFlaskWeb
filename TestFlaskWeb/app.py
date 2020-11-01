@@ -18,10 +18,10 @@ wsgi_app = app.wsgi_app
 
 @app.route('/')
 def hello():
-    texts = NewsRepository().GetOne(8)
-    result = ConvertObjExt(texts).ToClass(News)
+    texts = NewsRepository().GetArrayToList()
+    text = NewsRepository().GetOneToClass()
     
-    return jsonify(ConvertObjExt(result).ToJson())
+    return jsonify(ConvertObjExt(texts).ToJson())
 
 
 
