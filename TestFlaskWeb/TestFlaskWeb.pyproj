@@ -33,6 +33,7 @@
     <Compile Include="Ext\Convert.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\News.py" />
     <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +41,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\BaseRepositories\BaseRepository.py" />
+    <Compile Include="Repositories\NewsRepository.py" />
     <Compile Include="Repositories\TextRepository.py">
       <SubType>Code</SubType>
     </Compile>

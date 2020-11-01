@@ -1,6 +1,7 @@
 import json
 from datetime import date, datetime
 from collections import namedtuple
+from Models.Text import Text
 class AdvancedJSONEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
@@ -22,15 +23,38 @@ class ConvertObjExt:
         #將 JsonStr 轉成 數據格式
         return json.loads(str)
 
-    def ToClass(self):
+    def ToClass(self,type):
         str = self.ToString()
         obj = json.loads(str, object_hook=self.__customDecoder__)
-        return obj
+        
+        return type(*obj)
 
     def __customDecoder__(self,obj):
         return namedtuple(type(obj).__name__, obj.keys())(*obj.values())
 
+class ConvertArrayExt():
+    def __init__(self, list):
+        self.list = list
 
+    def ToArrayString(self):
+        #將 List 物件轉成 JsonStr
+        result = []
+        
+        for item in self.list:
+            str = ConvertObjExt(item).ToString()
+            result.append(str)
+        return result
+    def ToArrayJson(self):
+        str = self.ToArrayString()
+        #將 JsonStr 轉成 數據格式
+        return json.loads(str)
+
+    def ToList(self):
+        result = []
+        for item in self.list:
+            obj = ConvertObjExt(item).ToClass()
+            result.append(obj)
+        return result
 
     
 
