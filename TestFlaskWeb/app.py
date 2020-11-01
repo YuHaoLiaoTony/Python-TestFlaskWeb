@@ -2,18 +2,29 @@
 This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
+from Repositories.TextRepository import TextRepository
 
 from flask import Flask
+from flask import jsonify
+
+import json
+from Ext.Convert import ConvertObjExt
+from Models.Text import Text
 app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
-
 @app.route('/')
 def hello():
-    """Renders a sample page."""
-    return "Hello World!"
+    text = TextRepository().GetOne(14)
+    return jsonify(text)
+    #轉強行別
+    result = Text(*ConvertObjExt(text).ToClass())
+    
+    return jsonify(ConvertObjExt(result).ToJson())
+
+
 
 if __name__ == '__main__':
     import os
