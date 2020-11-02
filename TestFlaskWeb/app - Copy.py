@@ -14,8 +14,7 @@ app = Flask(__name__)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
-
-@app.route('/logs')
+@app.route('/blogs')
 def get_logs():
     logs = LOGRepository().GetArrayToList() 
     
@@ -25,7 +24,7 @@ def get_logs():
     #restult = ConvertArrayExt(texts).ToJsonArray()
     return jsonify(ConvertArrayExt(logs).ToJsonArray())
 
-@app.route('/logs/<int:id>')
+@app.route('/blogs/<int:id>')
 def get_log(id):
     log = LOGRepository().GetOneToClass(id) 
     
