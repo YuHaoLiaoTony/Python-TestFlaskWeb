@@ -8,7 +8,7 @@ class BaseRepository:
         self.__Conn__ =  BaseConn(server,database,username,password)
         self.__Cursor__ = self.__Conn__.CreateConn()
         self.__Type__ = type
-        self.__TableName__ = type.__name__
+        self.__TableName__ = type.__name__.replace("Model", "");
         
     def GetArray(self):
         sql = f"SELECT TOP 100* FROM {self.__TableName__}"

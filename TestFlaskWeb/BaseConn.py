@@ -7,7 +7,7 @@ class BaseConn:
         self.Username = username
         self.Password = password
     def CreateConn(self):
-        cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+self.Server+';DATABASE='+self.Database+';UID='+self.Username+';PWD='+ self.Password)
+        cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER='+self.Server+';DATABASE='+self.Database+';UID='+self.Username+';PWD='+ self.Password)
         self.Cnxn = cnxn
         self.Cursor = cnxn.cursor()
         return self.Cursor
