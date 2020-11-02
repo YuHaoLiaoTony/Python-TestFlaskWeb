@@ -28,12 +28,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app - Copy.py" />
+    <Compile Include="Controllers\HomeController.py" />
     <Compile Include="app.py" />
     <Compile Include="BaseConn.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ext\Convert.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\LogController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\LOGModel.py">
@@ -43,6 +46,7 @@
     <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="prediction_monitor_chailease.py" />
     <Compile Include="Repositories\BaseRepositories\BaseMOTO_LOANRepository.py" />
     <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
       <SubType>Code</SubType>
@@ -55,12 +59,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config.json" />
     <Content Include="libman.json" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ext\" />
     <Folder Include="Models\" />
+    <Folder Include="D:\GIT\Python-TestFlaskWeb\TestFlaskWeb\Controllers\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\BaseRepositories\" />
   </ItemGroup>
