@@ -39,6 +39,9 @@
     <Compile Include="Controllers\LogController.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ConfigModel.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\LOGModel.py">
       <SubType>Code</SubType>
     </Compile>
