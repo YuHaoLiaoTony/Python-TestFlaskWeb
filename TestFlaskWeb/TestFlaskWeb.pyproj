@@ -17,7 +17,6 @@
     <Name>TestFlaskWeb</Name>
     <RootNamespace>TestFlaskWeb</RootNamespace>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,31 +27,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomeController.py" />
     <Compile Include="app.py" />
     <Compile Include="BaseConn.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\HomeController.py" />
+    <Compile Include="Controllers\LogController.py" />
     <Compile Include="Ext\Convert.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\LogController.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\ConfigModel.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\LOGModel.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Looping.py" />
+    <Compile Include="Models\ConfigModel.py" />
+    <Compile Include="Models\LOGModel.py" />
     <Compile Include="Models\News.py" />
     <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Repositories\BaseRepositories\BaseMOTO_LOANRepository.py" />
+    <Compile Include="Monitor.py" />
+    <Compile Include="PredictionMonitorChailease.py" />
     <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\BaseRepositories\BaseMOTO_LOANRepository.py" />
     <Compile Include="Repositories\BaseRepositories\BaseRepository.py" />
     <Compile Include="Repositories\LOGRepository.py" />
     <Compile Include="Repositories\NewsRepository.py" />
@@ -61,21 +57,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config.json" />
+    <Content Include="config.json" />
     <Content Include="libman.json" />
-    <Content Include="Monitor.py" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Ext\" />
     <Folder Include="Models\" />
-    <Folder Include="D:\GIT\Python-TestFlaskWeb\TestFlaskWeb\Controllers\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\BaseRepositories\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
