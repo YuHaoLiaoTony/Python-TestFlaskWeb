@@ -1,12 +1,24 @@
 from flask import Flask
+import json                                                                                                                                            
+import os
 #import Controller
 from Controllers import HomeController
 from Controllers import LogController
 
 app = Flask(__name__)
 
-HomeController.init_app(app)
-LogController.init_app(app)
+
+#載入Config
+BASE_PATH = os.path.dirname(os.path.realpath(__file__).replace('Controllers',''))
+with open(BASE_PATH+'/config.json') as json_data_file:                                                                                                                            
+    Config = json.load(json_data_file)
+    #刪除註解
+    Config.pop('\\')
+
+HomeController.init_app(app,Config)
+LogController.init_app(app,Config)
+
+
 
 wsgi_app = app.wsgi_app
 

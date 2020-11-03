@@ -61,9 +61,11 @@
   <ItemGroup>
     <Content Include="Config.json" />
     <Content Include="libman.json" />
+    <Content Include="Monitor.py" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="Ext\" />
     <Folder Include="Models\" />
     <Folder Include="D:\GIT\Python-TestFlaskWeb\TestFlaskWeb\Controllers\" />

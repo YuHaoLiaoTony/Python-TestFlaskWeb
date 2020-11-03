@@ -4,7 +4,7 @@ from Models.LOGModel import LOGModel
 from Repositories.LOGRepository import *
 from flask import jsonify
 
-def init_app(app):
+def init_app(app,config):
     @app.route('/logs')
     def get_logs():
         logs = LOGRepository().GetArrayToList() 
