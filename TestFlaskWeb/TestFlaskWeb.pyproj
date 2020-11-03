@@ -46,7 +46,6 @@
     <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="prediction_monitor_chailease.py" />
     <Compile Include="Repositories\BaseRepositories\BaseMOTO_LOANRepository.py" />
     <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
       <SubType>Code</SubType>

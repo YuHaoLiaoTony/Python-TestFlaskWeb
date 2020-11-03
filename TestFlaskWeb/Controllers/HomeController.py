@@ -1,4 +1,4 @@
-import prediction_monitor_chailease
+#import prediction_monitor_chailease
 def init_app(app,config):
     @app.route('/')
     def auths():
