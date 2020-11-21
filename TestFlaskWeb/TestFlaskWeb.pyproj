@@ -33,18 +33,27 @@
     </Compile>
     <Compile Include="Controllers\HomeController.py" />
     <Compile Include="Controllers\LogController.py" />
+    <Compile Include="Filters\ErrorhandlerFilter.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Ext\Convert.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Looping.py" />
+    <Compile Include="Filters\BeforeRequestFilter.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filters\AfterRequestFilter.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JsonResponse.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\ConfigModel.py" />
     <Compile Include="Models\LOGModel.py" />
     <Compile Include="Models\News.py" />
     <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Monitor.py" />
-    <Compile Include="PredictionMonitorChailease.py" />
     <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
       <SubType>Code</SubType>
     </Compile>
@@ -65,6 +74,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Ext\" />
     <Folder Include="Models\" />
+    <Folder Include="Filters\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\BaseRepositories\" />
   </ItemGroup>
