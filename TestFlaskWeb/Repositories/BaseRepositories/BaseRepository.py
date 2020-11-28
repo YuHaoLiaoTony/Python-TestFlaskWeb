@@ -25,11 +25,11 @@ class BaseRepository:
 
     def GetOneToClass(self,id):
         data = self.GetOne(id)
-        return ConvertObjExt(data).ToClass(self.__Type__)
+        return ConvertObjExt(data).JsonToClass(self.__Type__)
 
     def GetArrayToList(self):
         datas = self.GetArray()
-        return ConvertArrayExt(datas).ToList(self.__Type__)
+        return ConvertArrayExt(datas).JsonArrayToList(self.__Type__)
 
     def __QueryList__(self,sql):
         result = []

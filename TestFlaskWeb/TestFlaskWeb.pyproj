@@ -31,6 +31,10 @@
     <Compile Include="BaseConn.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\BaseController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ProductController.py" />
     <Compile Include="Controllers\HomeController.py" />
     <Compile Include="Controllers\LogController.py" />
     <Compile Include="Filters\ErrorhandlerFilter.py">
@@ -48,10 +52,25 @@
     <Compile Include="JsonResponse.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\BaseModels\MongoBaseModel.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\ConfigModel.py" />
     <Compile Include="Models\LOGModel.py" />
     <Compile Include="Models\News.py" />
+    <Compile Include="Models\ProductModel.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Text.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MongodbRepositories\Base\BaseMasterDBMongodbRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MongodbRepositories\Base\BaseMongodbRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MongodbRepositories\ProductRepository.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
@@ -75,6 +94,9 @@
     <Folder Include="Ext\" />
     <Folder Include="Models\" />
     <Folder Include="Filters\" />
+    <Folder Include="Models\BaseModels\" />
+    <Folder Include="MongodbRepositories\" />
+    <Folder Include="MongodbRepositories\Base\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\BaseRepositories\" />
   </ItemGroup>

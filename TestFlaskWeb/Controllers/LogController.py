@@ -3,8 +3,9 @@ from Ext.Convert import ConvertArrayExt
 from Models.LOGModel import LOGModel
 from Repositories.LOGRepository import *
 from flask import jsonify
+from Controllers.BaseController import BaseController
 
-class LogController():
+class LogController(BaseController):
     def init_app(self,app,config):
         @app.route('/logs')
         def get_logs():
@@ -20,4 +21,4 @@ class LogController():
         def get_log(id):
             log = LOGRepository().GetOneToClass(id) 
     
-            return jsonify(ConvertObjExt(log).ToJson())
+            return jsonify(ConvertObjExt(log).ClassToJson())

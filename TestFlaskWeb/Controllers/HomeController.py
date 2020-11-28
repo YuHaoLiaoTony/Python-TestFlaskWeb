@@ -1,16 +1,16 @@
-from Ext.Convert import ConvertArrayExt
-from Models.LOGModel import LOGModel
 from flask import jsonify
 
-class HomeController():
+from Controllers.BaseController import BaseController
+
+class HomeController(BaseController):
+    
     def init_app(self,app,config):
         @app.route('/')
-        def auths():
-            log = LOGModel('1','2','3','4','5','6')
-            result = []
-            result.append(log)
-            result.append(log)
+        def getlist():
+            return 'OK'
+        
 
-            if(type(result) == type([])):
-                return jsonify(ConvertArrayExt(result).ToJsonArray())
-            return log.__dict__
+
+    
+    
+    

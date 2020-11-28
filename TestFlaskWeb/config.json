@@ -1,15 +1,3 @@
 {
-  "\\": "setting - 請將DATALAKE測試環境路徑替換為正式環境路徑",
-  "storage_account_name": "momostoragev2",
-  "storage_account_key": "JZiPNJrdrIadjy2xswwPqu2NWHBHYOQ7x8xwH2VGTuOuic9I8OVkHMPefDNSxHgCpR88VK1qnPMC5Man90COyw::",
-  "storage_file_system": "uatdatalake",
-  "storage_file_path": "BI/CCF/DAY/",
-  "\\": "這個資料夾路經應該要是BI每日上傳.out檔的路徑",
-
-  "\\": "setting - 請將mysql測試環境路徑替換為正式環境路徑",
-  "raw_data_dir": "/dbfs/uatdatalake/BI/",
-  "mysql_host": "acmysqltest01.mysql.database.azure.com",
-  "mysql_user": "myadmin@acmysqltest01",
-  "mysql_password": "S@lcfc8888",
-  "mysql_ssl_ca": "BaltimoreCyberTrustRoot.crt.pem"
+  
 }

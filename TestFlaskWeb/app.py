@@ -34,12 +34,13 @@ BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 with open(BASE_PATH+'/config.json') as json_data_file:                                                                                                                            
     JsonConfig = json.load(json_data_file)
     #刪除註解
-    JsonConfig.pop('\\')
+    if hasattr(JsonConfig,'\\'):
+        JsonConfig.pop('\\')
     
-    Config = ConvertObjExt(JsonConfig).ToClass(ConfigModel)
+    Config = ConvertObjExt(JsonConfig).JsonToClass(ConfigModel)
 #註冊 controller
 modules = glob.glob(join(dirname(os.path.realpath(__file__))+'\Controllers',"*.py"))
-__all__ = [ basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('__init__.py')]
+__all__ = [ basename(f)[:-3] for f in modules if isfile(f) and not f.endswith('BaseController.py')]
 for controllerName in __all__:
     controllerFile = __import__(f'Controllers.{controllerName}' ,fromlist = __all__)
     controller = getattr(controllerFile, controllerName)

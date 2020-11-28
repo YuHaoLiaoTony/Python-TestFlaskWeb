@@ -18,35 +18,43 @@ class ConvertObjExt:
         #將 Class 物件轉成 JsonStr
         str = json.dumps(self.Obj, cls=AdvancedJSONEncoder)
         return str
-    def ToJson(self):
-        str = self.ToString()
-        #將 JsonStr 轉成 數據格式
-        return json.loads(str)
+    def ClassToJson(self):
+        dtc = {}
+        if(hasattr(self.Obj,"__all__")):
+            dtc = self.Obj.__all__()
+        else:
+            dtc = self.Obj.__dict__
 
-    def ToClass(self,type):
-        str = self.ToString()
-        obj = json.loads(str, object_hook=self.__customDecoder__)
-        
-        return type(*obj)
+        return dtc
 
-    def __customDecoder__(self,obj):
-        return namedtuple(type(obj).__name__, obj.keys())(*obj.values())
+    def JsonToClass(self,classType):
+        obj = classType()
+        for key,value in self.Obj.items():
+            if hasattr(obj,key):
+                setattr(obj,key,value)
+        return obj
+
 
 class ConvertArrayExt():
     def __init__(self, list):
         self.List = list
 
-    def ToJsonArray(self):
-        str = ConvertObjExt(self.List).ToString()
-        #將 JsonStr 轉成 數據格式
-        return json.loads(str)
+    def ListToJsonArray(self):
+        mylist = []
+        
+        for obj in self.List:
+            data = ConvertObjExt(obj).ClassToJson()
+            mylist.append(data)
+        return mylist
 
-    def ToList(self,type):
-        result = []
+    def JsonArrayToList(self,classType):
+        arr = []
         for item in self.List:
-            obj = ConvertObjExt(item).ToClass(type)
-            result.append(obj)
-        return result
+            obj = ConvertObjExt(item).JsonToClass(classType)
+            arr.append(obj)
+        return arr
+
+    
 
     
 
