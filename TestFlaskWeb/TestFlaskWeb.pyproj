@@ -49,19 +49,12 @@
     <Compile Include="Filters\AfterRequestFilter.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsonResponse.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Models\BaseModels\MongoBaseModel.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\ConfigModel.py" />
     <Compile Include="Models\LOGModel.py" />
-    <Compile Include="Models\News.py" />
     <Compile Include="Models\ProductModel.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\Text.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MongodbRepositories\Base\BaseMasterDBMongodbRepository.py">
@@ -73,16 +66,9 @@
     <Compile Include="MongodbRepositories\ProductRepository.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Repositories\BaseRepositories\BaseEpaemisRepository.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Repositories\BaseRepositories\BaseMOTO_LOANRepository.py" />
     <Compile Include="Repositories\BaseRepositories\BaseRepository.py" />
     <Compile Include="Repositories\LOGRepository.py" />
-    <Compile Include="Repositories\NewsRepository.py" />
-    <Compile Include="Repositories\TextRepository.py">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.json" />
